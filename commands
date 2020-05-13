@@ -1,0 +1,68 @@
+
+#COPYRIGHT SINGAPORE 2018 Author: PRAKETA SAXENA 
+
+#INSTRUCTIONS: Try out the following commands 
+
+
+#1.SUBSTITUION
+
+-- NOTE has to be exact match  
+- echo Hello World | sed 's/Hello/ Hello mello/'
+
+-- NOTE will only change output Stream.not replace text in file 
+- sed 's/beautiful/ beautiful, bold, badasss and a bomb/' myText.txt
+
+- sed 's/beautiful/ beautiful, bold, badasss and a bomb/' myText.txt
+
+-- NOTE what get's replace and what does not 
+- sed 's/ Anthony/Captain America/' myText.txt
+
+-- NOTE g and n flag 
+-sed 's/Anthony/Captain America/g' myText.txt
+-sed 's/Anthony/Captain America/2' myText.txt
+
+
+-- saving output to a new file  
+-sed 's/Anthony/Captain America/2' myText.txt mytextUpdated.txt
+
+
+-- saving output to a existing file  
+-sed 's/Anthony/Captain America/2' myText.txt mytextUpdated.txt
+
+-- inplace replacement of  file  
+sed -i 's/Captain America/Mulan/g' mytextUpdated.txt
+
+-- escaping backslash characters  
+pwd | sed 's/\home/\employee/'
+
+-- NOTE you can use anything as delimiter  
+pwd | sed 's*\home*\employee*'
+pwd | sed 's!\home!\employee!'
+
+
+
+
+#2.DELETE SPECIFIC LINE/LINES
+-sed '/Mulan/d' mytextUpdated.txt
+
+------------------------------------------------
+echo '#ENVIRONMENT VARIABLES'>>bashuser.txt
+echo '#HADOOP HOME'>>bashuser.txt
+echo 'export HADOOP_HOME="/home/opt/ps"'>>bashuser.txt
+echo '#JAVA HOME'>>bashuser.txt
+echo 'export JAVA_HOME="/home/opt/ps"'>>bashuser.txt
+sed '/^#/d' bashuser.txt
+------------------------------------------------ 
+
+
+#3.DELETE with mulitple commmands 
+NOTE dlte lines with comments and spaces
+-sed '/^#/d;/^$/d' bashuser.txt
+
+
+#3.ADDRESSES
+sed '1 s/^#/?/' bashuser.txt
+sed '/home/ s/HADOOP_HOME/MONKEY_HOME/' bashuser.txt
+
+
+#4.SUBSITUTION VIA FILES 
